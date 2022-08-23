@@ -15,6 +15,7 @@ BASE_FLAGS= -s NO_DYNAMIC_EXECUTION=1 \
 			-s USE_PTHREADS=0 \
 			-s INVOKE_RUN=0 \
 			-s EXIT_RUNTIME=1 \
+			-s NODEJS_CATCH_REJECTION=0 \
 			-s EXPORTED_RUNTIME_METHODS=stackSave,stackRestore,stackAlloc \
 			--memory-init-file 0 \
 			-O3 \
