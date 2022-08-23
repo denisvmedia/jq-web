@@ -44,7 +44,7 @@ var stdin = InputBuffer()
 var stdout = OutputBuffer()
 var stderr = OutputBuffer()
 
-// initialize I/O buffers 
+// initialize I/O buffers
 Module["preRun"] = function() {
   FS.init(stdin.next, stdout.push, stderr.push)
 }
@@ -53,6 +53,7 @@ Module["preRun"] = function() {
 // echo {jsonString} | jq {options} {filter}
 Module["invoke"] = function(jsonString, filter, options = []) {
   return new Promise(function (resolve, reject) {
+    var save = stackSave()
     try {
       stdin.load(jsonString)
       callMain(options.concat(filter))
@@ -65,6 +66,7 @@ Module["invoke"] = function(jsonString, filter, options = []) {
     } catch (e) {
       reject(e)
     } finally {
+      stackRestore(save)
       stdin.load("")
       stdout.flush()
       stderr.flush()

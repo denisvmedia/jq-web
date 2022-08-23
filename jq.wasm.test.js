@@ -15,6 +15,9 @@ test('multiple calls', async () => {
   result = await jq.invoke('{"boolean": true,\n "int": 1}', '.boolean', ["-e"])
   expect(result).toBe(`true`)
 
-  result = await jq.invoke('{"boolean": true, "int": 1}', '.int', ["-e"])
-  expect(result).toBe(`1`)
-})  
+  for (let i = 0; i < 4096; i++) {
+    console.log(i);
+    result = await jq.invoke('{"boolean": true, "int": 1}', '.int', ["-e"])
+    expect(result).toBe(`1`)
+  }
+})
