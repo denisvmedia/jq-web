@@ -1,17 +1,20 @@
 {
-  "name": "jq-wasm",
+  "name": "jq-web",
   "version": "0.1.0",
   "description": "Run JQ with WebAssembly",
   "scripts": {
     "test": "jest"
   },
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/paolosimone/jq-wasm.git"
+    "url": "https://github.com/denisvmedia/jq-web.git"
   },
-  "author": "Paolo Simone",
+  "author": "denisvmedia",
   "license": "ISC",
-  "homepage": "https://github.com/paolosimone/jq-wasm#readme",
+  "homepage": "https://github.com/denisvmedia/jq-web#readme",
   "devDependencies": {
     "@node-minify/cli": "^6.2.0",
     "@node-minify/uglify-js": "^6.2.0",
